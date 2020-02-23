@@ -8,4 +8,4 @@ def data_retrieval(config):
 
     viirs_retrieval(wd, '20171201', '20200223')
 
-    # eia_retrieval(wd)
+    eia_retrieval(wd)

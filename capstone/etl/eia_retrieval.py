@@ -9,8 +9,3 @@ def eia_retrieval(workspace_directory):
         f"{url}/{filename}",
         f"{workspace_directory}/{filename}",
     )
-
-
-wd = "/Users/danielmsheehan/general_assembly/github/projects/project_6/capstone/data/input/eia"
-
-eia_retrieval(wd)
