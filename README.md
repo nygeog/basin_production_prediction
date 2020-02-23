@@ -1,7 +1,7 @@
 # capstone
 Capstone Project
 
-
+```--project_config=config.json```
 
 ## Data
 
