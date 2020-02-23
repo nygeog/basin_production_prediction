@@ -2,5 +2,10 @@ config.json
 .idea/workspace.xml
 *__pycache__/
 data
-idea/
+.idea/
 __pycache__/
+.idea/capstone.iml
+.idea/libraries/R_User_Library.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
