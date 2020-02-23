@@ -1,0 +1,6 @@
+config.json
+.idea/workspace.xml
+*__pycache__/
+data
+idea/
+__pycache__/
