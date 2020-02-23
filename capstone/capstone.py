@@ -1,8 +1,9 @@
 from capstone.organization.create_project_workspace import create_workspace
+from capstone.etl.data_retrieval import data_retrieval
 
 
 def run_capstone(config):
 
-    wd = config['workspace_directory']
+    create_workspace(config)
 
-    create_workspace(wd)
+    data_retrieval(config)

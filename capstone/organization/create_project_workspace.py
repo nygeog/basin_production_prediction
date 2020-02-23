@@ -1,7 +1,8 @@
 from tools.tools import get_current_time, create_directory
 
 
-def create_workspace(workspace_directory):
+def create_workspace(config):
+    workspace_directory = config['workspace_directory']
     print('creating project workspace')
 
     run_datetime = get_current_time('yyyymmdd_hhmm')
@@ -10,9 +11,9 @@ def create_workspace(workspace_directory):
     create_directory(project)
 
     for i in [
-        'data/input',
+        'data/input/viirs',
+        'data/input/eia',
         'data/processing',
-        'data/shadows',
         'data/output',
         # 'maps/output',
         # 'maps/mxd',
