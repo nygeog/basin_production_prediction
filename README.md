@@ -19,3 +19,9 @@ However, [Global Gas Flaring Estimates — Remotely Sensed VIIRS Nightfire Combu
 
 Since production is market-depedent rather than Time-Series, this may not be exclusively a time-series analysis. Any given unit in time, may be indepedent from the time units before or after. It is the aim of this project to predict Basin Oil Production metrics using Gas Flaring Combustion data. 
 
+
+
+https://www.eia.gov/petroleum/drilling/
+https://www.eia.gov/petroleum/drilling/xls/dpr-data.xlsx
+
+https://www.eia.gov/petroleum/drilling/xls/duc-data.xlsx
