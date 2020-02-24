@@ -11,3 +11,4 @@ __pycache__/
 .idea/vcs.xml
 notebooks/.ipynb_checkpoints/
 notebooks/.ipynb_checkpoints/*
+notebooks/.ipynb_checkpoints/exploratory_data_analysis-checkpoint.ipynb
