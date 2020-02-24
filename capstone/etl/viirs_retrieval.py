@@ -4,6 +4,7 @@ import urllib.request
 from urllib.error import HTTPError, URLError
 import gzip
 import shutil
+import time
 
 
 def viirs_retrieval(workspace_directory, start_date, end_date):
@@ -47,3 +48,5 @@ def viirs_retrieval(workspace_directory, start_date, end_date):
         except (HTTPError, URLError) as e:
             print(e.reason)
             continue
+
+        time.sleep(1)  # politely wait before next request
