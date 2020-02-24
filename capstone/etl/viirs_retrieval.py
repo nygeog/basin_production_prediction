@@ -1,6 +1,7 @@
 from datetime import date
 import pandas as pd
 import urllib.request
+from urllib.error import HTTPError, URLError
 import gzip
 import shutil
 
@@ -23,21 +24,26 @@ def viirs_retrieval(workspace_directory, start_date, end_date):
     for d in pd.date_range(start_dt, end_dt):
         print(d)
         dl_date = d.strftime("%Y%m%d")
-        filename = f"VNF_npp_d{dl_date}_noaa_v30-ez.csv.gz"
+        f = f"VNF_npp_d{dl_date}_noaa_v30-ez.csv.gz"
 
-        print(f"{url}/{filename}")
+        print(f"{url}/{f}")
 
-        urllib.request.urlretrieve(
-            f"{url}/{filename}",
-            f"{workspace_directory}/{filename}",
-        )
+        try:
+            urllib.request.urlretrieve(
+                f"{url}/{f}",
+                f"{workspace_directory}/{f}",
+            )
 
-        with gzip.open(
-            f"{workspace_directory}/{filename}",
-            'rb',
-        ) as file_in:
-            with open(
-                f"{workspace_directory}/{filename.replace('.csv.gz', '.csv')}",
-                'wb',
-            ) as file_out:
-                shutil.copyfileobj(file_in, file_out)
+            with gzip.open(
+                f"{workspace_directory}/{f}",
+                'rb',
+            ) as file_in:
+                with open(
+                    f"{workspace_directory}/{f.replace('.csv.gz', '.csv')}",
+                    'wb',
+                ) as file_out:
+                    shutil.copyfileobj(file_in, file_out)
+
+        except (HTTPError, URLError) as e:
+            print(e.reason)
+            continue
