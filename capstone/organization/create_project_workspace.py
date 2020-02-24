@@ -13,6 +13,7 @@ def create_workspace(config):
     for i in [
         'data/input/viirs',
         'data/input/eia',
+        'data/input/census',
         'data/processing',
         'data/output',
         # 'maps/output',
