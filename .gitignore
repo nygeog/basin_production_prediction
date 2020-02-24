@@ -9,3 +9,5 @@ __pycache__/
 .idea/misc.xml
 .idea/modules.xml
 .idea/vcs.xml
+notebooks/.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints/*
