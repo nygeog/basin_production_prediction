@@ -28,3 +28,5 @@ https://www.eia.gov/petroleum/drilling/xls/duc-data.xlsx
 
 
 https://catalog.data.gov/dataset/tiger-line-shapefile-2017-nation-u-s-current-county-and-equivalent-national-shapefile
+
+https://www.eia.gov/oil_gas/rpd/shale_gas.pdf
