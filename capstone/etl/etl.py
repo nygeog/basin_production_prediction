@@ -27,7 +27,7 @@ def extract_transform_load(config):
 
     basins = generate_us_basins(census_gdf, eia_cnty, f"{wd}/input/basins")
 
-    viirs_retrieval(f"{wd}/input/viirs", '20200219', '20200223')
+    viirs_retrieval(f"{wd}/input/viirs", '20200222', '20200226')
     viirs_files = glob.glob(f"{wd}/input/viirs/*.csv")  # get viirs files
 
     for basin in basins:
