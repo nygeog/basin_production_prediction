@@ -1,5 +1,7 @@
 import pandas as pd
 import us
+from tools.tools import open_excel_workbook, excel_sheet_names
+import os
 
 
 def eia_parse_county(eia_cnty_xls):
@@ -25,3 +27,33 @@ def eia_parse_county(eia_cnty_xls):
 def remap_state_fips(state_abbrev):
     s = us.states.lookup(state_abbrev)
     return s.fips
+
+
+def eia_parse_data(eia_xls):
+    print(" parse eia data")
+    xls_sheets = excel_sheet_names(
+        open_excel_workbook(eia_xls)
+    )
+
+    for sheet in xls_sheets:
+        if sheet != "RegionCounties":
+            print(f"    for {sheet}")
+            df = pd.read_excel(eia_xls, sheet_name=sheet, skiprows=[0])
+
+            df.columns = [
+                'month',
+                'rig_count',
+                'oil_bbl_d_production_per_rig',
+                'oil_bbl_d_legacy_production_change',
+                'oil_bbl_d_total_production',
+                'natgas_mcf_d_production_per_rig',
+                'natgas_mcf_d_legacy_production_change',
+                'natgas_mcf_d_total_production',
+            ]
+
+            df['region'] = sheet
+
+            df.to_csv(
+                f"{os.path.dirname(eia_xls)}/{sheet.lower().replace(' ', '_')}",
+                index=False,
+            )

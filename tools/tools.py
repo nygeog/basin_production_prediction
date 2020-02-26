@@ -1,6 +1,7 @@
 from datetime import datetime
 import os
 import json
+import xlrd
 
 
 def get_current_time(time_format):
@@ -26,3 +27,11 @@ def create_directory(directory_folder):
 def read_json(json_file):
     with open(json_file) as f:
         return json.load(f)
+
+
+def open_excel_workbook(input_excel):
+    return xlrd.open_workbook(input_excel)
+
+
+def excel_sheet_names(excel_object):
+    return excel_object.sheet_names()

@@ -1,7 +1,7 @@
 from capstone.etl.eia_retrieval import eia_retrieval
 from capstone.etl.viirs_retrieval import viirs_retrieval
 from capstone.etl.census_retrieval import census_retrieval
-from capstone.etl.eia_parse import eia_parse_county
+from capstone.etl.eia_parse import eia_parse_county, eia_parse_data
 from capstone.etl.viirs_parse import viirs_parse
 from capstone.etl.census_parse import parse_census
 from tools.geoprocessing import point_in_polygon
@@ -22,8 +22,9 @@ def extract_transform_load(config):
     census_shp = census_retrieval(f"{wd}/input/census")  # get data for basins
     census_gdf = parse_census(census_shp)
 
-    eia_cnty_xls = eia_retrieval(f"{wd}/input/eia")
-    eia_cnty = eia_parse_county(eia_cnty_xls)
+    eia_xls = eia_retrieval(f"{wd}/input/eia")
+    eia_cnty = eia_parse_county(eia_xls)
+    eia_parse_data(eia_xls)  # parse the target variable(s) data
 
     basins = generate_us_basins(census_gdf, eia_cnty, f"{wd}/input/basins")
 
