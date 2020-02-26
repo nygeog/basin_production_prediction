@@ -35,6 +35,10 @@ def eia_parse_data(eia_xls):
         open_excel_workbook(eia_xls)
     )
 
+    out_dir = os.path.dirname(eia_xls)
+
+    df_list = []
+
     for sheet in xls_sheets:
         if sheet != "RegionCounties":
             print(f"    for {sheet}")
@@ -54,6 +58,15 @@ def eia_parse_data(eia_xls):
             df['region'] = sheet
 
             df.to_csv(
-                f"{os.path.dirname(eia_xls)}/{sheet.lower().replace(' ', '_')}",
+                f"{out_dir }/{sheet.lower().replace(' ', '_')}.csv",
                 index=False,
             )
+
+            df_list.append(df)
+
+    df = pd.concat(df_list, sort=True)
+
+    df.to_csv(
+        f"{out_dir}/all_eia_data.csv",
+        index=False,
+    )
