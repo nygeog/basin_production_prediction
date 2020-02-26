@@ -3,9 +3,10 @@ import geopandas as gpd
 from shapely.geometry import Point
 
 
-def viirs_parse():
+def viirs_parse(viirs_csv):
     viirs = pd.read_csv(
-        '../data/input/viirs/VNF_npp_d20171201_noaa_v30-ez.csv'
+        viirs_csv,
+        # '../data/input/viirs/VNF_npp_d20171201_noaa_v30-ez.csv'
     )
 
     viirs.columns = [c.lower() for c in viirs.columns]

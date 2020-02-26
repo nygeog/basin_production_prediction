@@ -9,3 +9,5 @@ def eia_retrieval(workspace_directory):
         f"{url}/{filename}",
         f"{workspace_directory}/{filename}",
     )
+
+    return f"{workspace_directory}/{filename}"

@@ -13,3 +13,5 @@ def census_retrieval(workspace_directory):
 
     with zipfile.ZipFile(f"{workspace_directory}/{filename}", 'r') as zip_ref:
         zip_ref.extractall(f"{workspace_directory}")
+
+    return f"{workspace_directory}/{filename.replace('.zip', '.shp')}"
