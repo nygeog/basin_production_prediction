@@ -27,5 +27,6 @@ def extract_transform_load(config):
 
     viirs_retrieval(f"{wd}/input/viirs", '20200222', '20200226')
     viirs_files = glob.glob(f"{wd}/input/viirs/*.csv")  # get viirs files
+    viirs_files.sort()  # sort so dates are consecutive for tracking progress
 
     viirs_join_basins(wd, basins, viirs_files)
