@@ -14,6 +14,7 @@ def create_workspace(config):
         'data/input/viirs',
         'data/input/eia',
         'data/input/census',
+        'data/input/basins',
         'data/processing',
         'data/output',
         # 'maps/output',

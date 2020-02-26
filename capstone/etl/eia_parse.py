@@ -13,7 +13,13 @@ def eia_parse_county(eia_cnty_xls):
     # eia data for some reason has the incorrect state fips codes, remap here
     eia_cnty['stateid'] = eia_cnty['state'].map(remap_state_fips)
 
-    return eia_cnty
+    eia_cnty['geoid'] = eia_cnty[
+        'stateid'
+    ].astype(str).str.zfill(2) + eia_cnty[
+        'countyid'
+    ].astype(str).str.zfill(3)
+
+    return eia_cnty[['geoid', 'region']]
 
 
 def remap_state_fips(state_abbrev):

@@ -14,10 +14,12 @@ def viirs_parse(viirs_csv):
     # create point geometries column - from noah's local folium lesson
     viirs_gdf = gpd.GeoDataFrame(
         viirs,
-        crs={'init': 'epsg:4326'},
+        crs=4326,  # {'init': 'epsg:4326'},
         geometry=[
             Point(xy) for xy in zip(viirs['lon_gmtco'], viirs['lat_gmtco'])
         ],
     )
+
+    viirs_gdf = viirs_gdf.to_crs(epsg=4269)
 
     return viirs_gdf

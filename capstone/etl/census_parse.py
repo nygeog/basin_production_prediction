@@ -2,9 +2,7 @@ import geopandas as gpd
 
 
 def parse_census(census_shp):
-    census = gpd.read_file(
-        '../data/input/census/tl_2017_us_county.shp'
-    )
+    census = gpd.read_file(census_shp)
 
     census.columns = [c.lower() for c in census.columns]
 

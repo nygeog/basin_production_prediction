@@ -8,6 +8,7 @@ import time
 
 
 def viirs_retrieval(workspace_directory, start_date, end_date):
+    print('retrieving viirs data')
     url = "https://eogdata.mines.edu/wwwdata/viirs_products/vnf/v30/"
 
     start_dt = date(
@@ -23,11 +24,11 @@ def viirs_retrieval(workspace_directory, start_date, end_date):
     )
 
     for d in pd.date_range(start_dt, end_dt):
-        print(d)
+        print(f"    {d}")
         dl_date = d.strftime("%Y%m%d")
         f = f"VNF_npp_d{dl_date}_noaa_v30-ez.csv.gz"
 
-        print(f"{url}/{f}")
+        print(f"    {url}/{f}")
 
         try:
             urllib.request.urlretrieve(

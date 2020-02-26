@@ -3,6 +3,7 @@ import zipfile
 
 
 def census_retrieval(workspace_directory):
+    print('getting us census county boundaries for basin delineation')
     url = "https://www2.census.gov/geo/tiger/TIGER2017/COUNTY/"
     filename = "tl_2017_us_county.zip"
 
