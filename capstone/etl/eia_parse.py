@@ -64,9 +64,11 @@ def eia_parse_data(eia_xls):
 
             df_list.append(df)
 
-    df = pd.concat(df_list, sort=True)
+    eia_data = pd.concat(df_list, sort=True)
 
-    df.to_csv(
+    eia_data.to_csv(
         f"{out_dir}/all_eia_data.csv",
         index=False,
     )
+
+    return eia_data

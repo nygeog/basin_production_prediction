@@ -5,9 +5,10 @@ from capstone.etl.eia_parse import eia_parse_county, eia_parse_data
 from capstone.etl.census_parse import parse_census
 from capstone.etl.generate_basins import generate_us_basins
 from capstone.etl.viirs_join_basins import viirs_join_basins
+from capstone.etl.aggregate_viirs import aggregate_viirs_by_basin_month
 import glob
 import warnings
-
+import pandas as pd
 
 warnings.filterwarnings("ignore", category=UserWarning)
 
@@ -21,14 +22,21 @@ def extract_transform_load(config):
 
     eia_xls = eia_retrieval(f"{wd}/input/eia")
     eia_cnty = eia_parse_county(eia_xls)
-    eia_parse_data(eia_xls)  # parse the target variable(s) data
+    eia_data = eia_parse_data(eia_xls)  # parse the target variable(s) data
 
     basins = generate_us_basins(census_gdf, eia_cnty, f"{wd}/input/basins")
 
-    viirs_retrieval(f"{wd}/input/viirs", '20191201', '20200201')
+    viirs_retrieval(f"{wd}/input/viirs", '20200225', '20200227')
     viirs_files = glob.glob(f"{wd}/input/viirs/*.csv")  # get viirs files
     viirs_files.sort()  # sort so dates are consecutive for tracking progress
 
-    gdf = viirs_join_basins(wd, basins, viirs_files)
+    # viirs_int_basins = viirs_join_basins(wd, basins, viirs_files)
 
+    viirs_int_basins = pd.read_csv(
+        '/Users/danielmsheehan/general_assembly/github/projects/project_6/capstone/data/processing/complete/all.csv',
+        parse_dates=["date_mscan"]
+    )
 
+    eia_agg_viirs = aggregate_viirs_by_basin_month(viirs_int_basins, eia_data)
+
+    eia_agg_viirs.to_csv(f"{wd}/processing/eia_agg_viirs.csv")
