@@ -1,5 +1,6 @@
 from capstone.etl.eia_retrieval import eia_retrieval
-from capstone.etl.viirs_retrieval import viirs_retrieval
+from capstone.etl.viirs_retrieval import viirs_3_0_retrieval
+from capstone.etl.viirs_retrieval import viirs_2_1c_retrieval
 from capstone.etl.census_retrieval import census_retrieval
 from capstone.etl.eia_parse import eia_parse_county, eia_parse_data
 from capstone.etl.census_parse import parse_census
@@ -26,7 +27,9 @@ def extract_transform_load(config):
 
     basins = generate_us_basins(census_gdf, eia_cnty, f"{wd}/input/basins")
 
-    viirs_retrieval(f"{wd}/input/viirs", '20200225', '20200227')
+    viirs_3_0_retrieval(f"{wd}/input/viirs30", '20200225', '20200227')
+    viirs_2_1c_retrieval(f"{wd}/input/viirs21c", '20120301', '20171130')
+
     viirs_files = glob.glob(f"{wd}/input/viirs/*.csv")  # get viirs files
     viirs_files.sort()  # sort so dates are consecutive for tracking progress
 

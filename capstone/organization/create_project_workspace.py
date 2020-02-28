@@ -11,7 +11,8 @@ def create_workspace(config):
     create_directory(project)
 
     for i in [
-        'data/input/viirs',
+        'data/input/viirs30',
+        'data/input/viirs21c',
         'data/input/eia',
         'data/input/census',
         'data/input/basins',
