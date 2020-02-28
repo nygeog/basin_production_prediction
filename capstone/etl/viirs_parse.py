@@ -1,5 +1,6 @@
 import pandas as pd
 import geopandas as gpd
+import numpy as np
 from shapely.geometry import Point
 
 
@@ -10,6 +11,8 @@ def viirs_parse(viirs_csv):
     )
 
     viirs.columns = [c.lower() for c in viirs.columns]
+
+    viirs = viirs.replace(999999, np.nan)
 
     # create point geometries column - from noah's local folium lesson
     viirs_gdf = gpd.GeoDataFrame(

@@ -32,11 +32,11 @@ def extract_transform_load(config):
 
     # viirs_int_basins = viirs_join_basins(wd, basins, viirs_files)
 
-    viirs_int_basins = pd.read_csv(
-        '/Users/danielmsheehan/general_assembly/github/projects/project_6/capstone/data/processing/complete/all.csv',
+    viirs_int_basins =  pd.read_csv(
+        '/Users/danielmsheehan/general_assembly/github/projects/project_6/capstone/data/processing/complete/all_int_viirs.csv',
         parse_dates=["date_mscan"]
     )
 
     eia_agg_viirs = aggregate_viirs_by_basin_month(viirs_int_basins, eia_data)
 
-    eia_agg_viirs.to_csv(f"{wd}/processing/eia_agg_viirs.csv")
+    eia_agg_viirs.to_csv(f"{wd}/processing/eia_agg_viirs.csv", index=False)

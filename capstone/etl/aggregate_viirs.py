@@ -11,7 +11,10 @@ def aggregate_viirs_by_basin_month(viirs_int_basins, eia_data):
     ).agg(
         count_obs=pd.NamedAgg(column='id', aggfunc='count'),
         temp_bb_mean=pd.NamedAgg(column='temp_bb', aggfunc='mean'),
+        temp_bb_med=pd.NamedAgg(column='temp_bb', aggfunc='median'),
         temp_bb_sum=pd.NamedAgg(column='temp_bb', aggfunc='sum'),
+        temp_bb_min=pd.NamedAgg(column='temp_bb', aggfunc='min'),
+        temp_bb_max=pd.NamedAgg(column='temp_bb', aggfunc='max'),
     )
 
     viirs_gby = viirs_gby.reset_index()
