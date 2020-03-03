@@ -4,7 +4,7 @@ import pandas as pd
 import os
 
 
-def viirs_join_basins(wd, basins, viirs_files):
+def viirs_join_basins(wd, basins, viirs_files, suffix):
     all_int_viirs_list = []
 
     for basin in basins:
@@ -43,12 +43,12 @@ def viirs_join_basins(wd, basins, viirs_files):
     gdf = pd.concat(all_int_viirs_list, sort=True)
 
     gdf.to_file(
-        f"{wd}/processing/all_int_viirs.gpkg",
+        f"{wd}/processing/all_int_viirs_{suffix}.gpkg",
         driver="GPKG",  # 'ESRI Shapefile',
     )
 
     gdf.to_csv(
-        f"{wd}/processing/all_int_viirs.csv",
+        f"{wd}/processing/all_int_viirs_{suffix}.csv",
         index=False,
     )
 

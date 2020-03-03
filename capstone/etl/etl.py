@@ -27,19 +27,34 @@ def extract_transform_load(config):
 
     basins = generate_us_basins(census_gdf, eia_cnty, f"{wd}/input/basins")
 
-    viirs_3_0_retrieval(f"{wd}/input/viirs30", '20200225', '20200227')
-    viirs_2_1c_retrieval(f"{wd}/input/viirs21c", '20120301', '20171130')
+    # viirs_3_0_retrieval(f"{wd}/input/viirs30", '20200225', '20200227')
+    # viirs_2_1c_retrieval(f"{wd}/input/viirs21c", '20120301', '20171130')
 
-    viirs_files = glob.glob(f"{wd}/input/viirs/*.csv")  # get viirs files
-    viirs_files.sort()  # sort so dates are consecutive for tracking progress
+    viirs_2_1c_files = glob.glob(f"{wd}/input/viirs21c/*.csv")  # get viirs
+    viirs_2_1c_files.sort()  # sort so dates are consecutive for tracking
 
-    # viirs_int_basins = viirs_join_basins(wd, basins, viirs_files)
+    viirs_3_0_files = glob.glob(f"{wd}/input/viirs30/*.csv")  # get viirs files
+    viirs_3_0_files.sort()  # sort so dates are consecutive for tracking
 
-    viirs_int_basins =  pd.read_csv(
-        '/Users/danielmsheehan/general_assembly/github/projects/project_6/capstone/data/processing/complete/all_int_viirs.csv',
-        parse_dates=["date_mscan"]
+    viirs_2_1c_int_basins = viirs_join_basins(
+        wd,
+        basins,
+        viirs_2_1c_files,
+        '21c',
     )
 
-    eia_agg_viirs = aggregate_viirs_by_basin_month(viirs_int_basins, eia_data)
+    viirs_3_0_int_basins = viirs_join_basins(
+        wd,
+        basins,
+        viirs_3_0_files,
+        '30',
+    )
 
-    eia_agg_viirs.to_csv(f"{wd}/processing/eia_agg_viirs.csv", index=False)
+    # viirs_int_basins =  pd.read_csv(
+    #     '/Users/danielmsheehan/general_assembly/github/projects/project_6/capstone/data/processing/complete/all_int_viirs.csv',
+    #     parse_dates=["date_mscan"]
+    # )
+
+    # eia_agg_viirs = aggregate_viirs_by_basin_month(viirs_int_basins, eia_data)
+
+    # eia_agg_viirs.to_csv(f"{wd}/processing/eia_agg_viirs.csv", index=False)
