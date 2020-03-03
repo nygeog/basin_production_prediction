@@ -27,17 +27,17 @@ def extract_transform_load(config):
     basins = generate_us_basins(census_gdf, eia_cnty, f"{wd}/input/basins")
 
     viirs_retrieval(
-        f"{wd}/input/viirs30",
-        '20171201',
-        '20171203',
-        version='v30',  # version 30 for latest data
+        f"{wd}/input/viirs21c",
+        '20171101',
+        '20171130',
+        version='v21',  # version 21 for older data
     )
 
     viirs_retrieval(
-        f"{wd}/input/viirs21c",
-        '20171127',
-        '20171130',
-        version='v21',  # version 21 for older data
+        f"{wd}/input/viirs30",
+        '20171201',
+        '20171231',
+        version='v30',  # version 30 for latest data
     )
 
     viirs_2_1c_files = glob.glob(f"{wd}/input/viirs21c/*.csv")  # get viirs
