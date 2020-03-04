@@ -4,7 +4,12 @@ import pandas as pd
 # this only applies to generating basins in the us
 def generate_us_basins(census, eia_cnty, basins_output_dir):
     print('generating us basins')
-    basins_geo_all = pd.merge(left=census, right=eia_cnty, on='geoid', how='inner')
+    basins_geo_all = pd.merge(
+        left=census,
+        right=eia_cnty,
+        on='geoid',
+        how='inner',
+    )
 
     basins_gdf_list = []
 
