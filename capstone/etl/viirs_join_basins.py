@@ -48,9 +48,11 @@ def compile_basin_data(wd, suffix):
         df = pd.read_csv(f)
         basin_viirs_dfs.append(df)
 
-    gdf = pd.concat(basin_viirs_dfs, sort=True)
+    df = pd.concat(basin_viirs_dfs, sort=True)
 
-    gdf.to_csv(
+    df.to_csv(
         f"{wd}/processing/basins_int_viirs_{suffix}.csv",
         index=False,
     )
+
+    return df
