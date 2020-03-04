@@ -1,8 +1,8 @@
-from capstone.etl.eia_retrieval import eia_retrieval
 from capstone.etl.viirs_retrieval import viirs_retrieval
 from capstone.etl.census_retrieval import census_retrieval
-from capstone.etl.eia_parse import eia_parse_county, eia_parse_data
 from capstone.etl.census_parse import parse_census
+from capstone.etl.eia_retrieval import eia_retrieval
+from capstone.etl.eia_parse import eia_parse_county, eia_parse_data
 from capstone.etl.generate_basins import generate_us_basins
 from capstone.etl.viirs_join_basins import viirs_join_basins, compile_basin_data
 from capstone.etl.aggregate_viirs import aggregate_viirs_by_basin_month
