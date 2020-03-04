@@ -18,6 +18,8 @@ warnings.filterwarnings("ignore", category=UserWarning)
 def extract_transform_load(config):
     current_date = get_current_time('yyyymmdd')
 
+    # add function here to check if v30 sorted by date has current_date data
+
     wd = f"{config['workspace_directory']}/data"
 
     census_shp = census_retrieval(f"{wd}/input/census")  # get data for basins

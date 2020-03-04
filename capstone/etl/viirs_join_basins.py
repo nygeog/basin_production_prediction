@@ -51,6 +51,6 @@ def compile_basin_data(wd, suffix):
     gdf = pd.concat(basin_viirs_dfs, sort=True)
 
     gdf.to_csv(
-        f"{wd}/processing/all_int_viirs_{suffix}.csv",
+        f"{wd}/processing/basins_int_viirs_{suffix}.csv",
         index=False,
     )
