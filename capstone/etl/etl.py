@@ -71,15 +71,15 @@ def extract_transform_load(config):
         '30',
     )
 
-    # basins_int_viirs_21c = compile_basin_data(wd, '21c')
-    # basins_int_viirs_30  = compile_basin_data(wd, '30')
+    basins_int_viirs_21c = compile_basin_data(wd, '21c')
+    basins_int_viirs_30  = compile_basin_data(wd, '30')
 
-    basins_int_viirs_21c = pd.read_csv(
-        f"{wd}/processing/basins_int_viirs_21c.csv"
-    )
-    basins_int_viirs_30  = pd.read_csv(
-        f"{wd}/processing/basins_int_viirs_30.csv"
-    )
+    # basins_int_viirs_21c = pd.read_csv(
+    #     f"{wd}/processing/basins_int_viirs_21c.csv"
+    # )
+    # basins_int_viirs_30  = pd.read_csv(
+    #     f"{wd}/processing/basins_int_viirs_30.csv"
+    # )
 
     print(basins_int_viirs_21c.shape)
 
