@@ -12,7 +12,9 @@ def viirs_join_basins(wd, all_basins, viirs_files, suffix):
 
     for viirs_file in viirs_files:
         vdate = os.path.basename(viirs_file)[9:17]  # viirs date
-        print(f"    {vdate}")
+        if vdate[4:8] == '0101':
+            print(f"    {vdate}")
+
         if not Path(
             f"{wd}/{wdt}/basins_int_viirs_{vdate}_{suffix}.csv"
         ).is_file():
@@ -43,7 +45,8 @@ def compile_basin_data(wd, suffix):
 
     for f in basin_int_viirs_list:
         vdate = os.path.basename(f)[17:25]   # viirs date
-        print(f"    {vdate}")
+        if vdate[4:8] == '0101':
+            print(f"    {vdate}")
 
         df = pd.read_csv(f)
         basin_viirs_dfs.append(df)
