@@ -41,7 +41,7 @@ def eia_parse_data(eia_xls):
 
     for sheet in xls_sheets:
         if sheet != "RegionCounties":
-            print(f"    for {sheet}")
+            print(f"    for {sheet.lower()}")
             df = pd.read_excel(eia_xls, sheet_name=sheet, skiprows=[0])
 
             df.columns = [
