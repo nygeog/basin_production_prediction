@@ -37,7 +37,7 @@ def extract_transform_load(config):
 
     viirs_retrieval(
         f"{wd}/input/viirs21c",
-        '20120301',
+        '20120308',
         '20171130',
         version='v21',  # version 21 for older data
     )
@@ -57,22 +57,22 @@ def extract_transform_load(config):
     viirs_3_0_files.sort()  # sort so dates are consecutive for tracking
     print(f'Total 3.0 files: {len(viirs_3_0_files)}')
 
-    viirs_join_basins(
-        wd,
-        all_basins,
-        viirs_2_1c_files,
-        '21c',
-    )
-
-    viirs_join_basins(
-        wd,
-        all_basins,
-        viirs_3_0_files,
-        '30',
-    )
-
-    basins_int_viirs_21c = compile_basin_data(wd, '21c')
-    basins_int_viirs_30  = compile_basin_data(wd, '30')
+    # viirs_join_basins(
+    #     wd,
+    #     all_basins,
+    #     viirs_2_1c_files,
+    #     '21c',
+    # )
+    #
+    # viirs_join_basins(
+    #     wd,
+    #     all_basins,
+    #     viirs_3_0_files,
+    #     '30',
+    # )
+    #
+    # basins_int_viirs_21c = compile_basin_data(wd, '21c')
+    # basins_int_viirs_30  = compile_basin_data(wd, '30')
 
     # basins_int_viirs_21c = pd.read_csv(
     #     f"{wd}/processing/basins_int_viirs_21c.csv"
@@ -81,9 +81,9 @@ def extract_transform_load(config):
     #     f"{wd}/processing/basins_int_viirs_30.csv"
     # )
 
-    print(basins_int_viirs_21c.shape)
-
-    print(basins_int_viirs_30.shape)
+    # print(basins_int_viirs_21c.shape)
+    #
+    # print(basins_int_viirs_30.shape)
 
     # eia_agg_viirs = aggregate_viirs_by_basin_month(viirs_int_basins, eia_data)
     #
