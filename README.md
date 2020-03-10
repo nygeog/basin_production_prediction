@@ -9,7 +9,7 @@ Crude Oil extraction figures are published monthly, so for a given Basin Region 
 
 ### [Presentation](https://docs.google.com/presentation/d/1blz2lrQwKBJgtudyriewEqyXFqCvffJsTLtiVCprDs4/edit?usp=sharing)
 
-
+[![presentation](https://raw.git.generalassemb.ly/danielmartinsheehan/capstone/master/images/presentation.png)](https://docs.google.com/presentation/d/1blz2lrQwKBJgtudyriewEqyXFqCvffJsTLtiVCprDs4/edit?usp=sharing)
 
 
 ## Target Feature for Prediction
@@ -21,6 +21,7 @@ This is the target data that this project aims to generate a prediction for. For
 The US Energy Information Administration (EIA) releases a monthly **[Drilling Productivity Report](https://www.eia.gov/petroleum/drilling)**. This report publishes data for seven regions as shown below in the EIA U.S. Basin Regions map.
 
 ![basins](https://www.eia.gov/petroleum/drilling/images/dpmapv4l-wtitle_sm2.png)
+
 [_<center>EIA U.S. Basin Regions</center>_](https://www.eia.gov/petroleum/drilling)
 
 
@@ -97,3 +98,7 @@ So by **using Nightfire V3.0, V2.1 (GRAVITE) and V2.1 (CLASS)** we can **monitor
 ![map_nightfire](https://cdn-images-1.medium.com/max/800/1*EYYeuItlVAE3vVnYVM7bLA.png)
 
 [_<center>Combustion Observations - 2019/12/20</center>_](https://medium.com/r/?url=https%3A%2F%2Fapi.mapbox.com%2Fstyles%2Fv1%2Fnygeog%2Fcj9u3co5v3j6s2smv1xf1unp3.html%3Ffresh%3Dtrue%26title%3Dcopy%26access_token%3Dpk.eyJ1IjoibnlnZW9nIiwiYSI6ImNrMXNqZ2x2MDBnbmMzbm5zMWdzdHpiZXAifQ.mJGV0qp58p5b42R11USDXw%231.4%2F26.5%2F20.9)
+
+### 2017 Bakken Region Nightfire Data
+
+![](https://git.generalassemb.ly/danielmartinsheehan/capstone/blob/master/images/bakken_nightfire_2017.gif?raw=true)
