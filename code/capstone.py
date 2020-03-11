@@ -1,5 +1,5 @@
-from capstone.organization.create_project_workspace import create_workspace
-from capstone.etl.etl import extract_transform_load
+from code.organization.create_project_workspace import create_workspace
+from code.etl.etl import extract_transform_load
 
 
 def run_capstone(config):
