@@ -1,4 +1,4 @@
-from code.etl.viirs_parse import viirs_parse
+from capstone.etl.viirs_parse import viirs_parse
 from tools.geoprocessing import point_in_polygon
 import pandas as pd
 import os

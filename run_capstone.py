@@ -1,6 +1,6 @@
 import argparse
 from tools.tools import read_json
-from code.capstone import run_capstone
+from capstone.capstone import run_capstone
 
 
 def get_command_line_args():
