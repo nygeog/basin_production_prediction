@@ -1,4 +1,4 @@
-# Measuring US Energy - Basin Region Production with Satellite Nightfire data
+# Measuring US Energy - Predicting Basin Region Production with Satellite Nightfire data
 
 Data Science Capstone Project for [General Assembly - Data Science Immersive 12-week full time 450 hour course.](https://generalassemb.ly/education/data-science-immersive/)
 
