@@ -11,6 +11,9 @@ Crude Oil extraction figures are published monthly, so for a given Basin Region 
 
 [![presentation](https://raw.git.generalassemb.ly/danielmartinsheehan/capstone/master/images/presentation.png)](https://docs.google.com/presentation/d/1blz2lrQwKBJgtudyriewEqyXFqCvffJsTLtiVCprDs4/edit?usp=sharing)
 
+## Notebooks
+
+[![notebooks](https://raw.git.generalassemb.ly/danielmartinsheehan/capstone/master/images/notebooks.png)](https://git.generalassemb.ly/danielmartinsheehan/capstone/tree/master/notebooks)
 
 ## Target Feature for Prediction
 
