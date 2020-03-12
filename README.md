@@ -105,3 +105,7 @@ So by **using Nightfire V3.0, V2.1 (GRAVITE) and V2.1 (CLASS)** we can **monitor
 ### 2017 Bakken Region Nightfire Data
 
 ![](https://git.generalassemb.ly/danielmartinsheehan/capstone/blob/master/images/bakken_nightfire_2017.gif?raw=true)
+
+### Interactive Plotly Dashboard of Predictions
+
+[![plotly](https://raw.git.generalassemb.ly/danielmartinsheehan/capstone/master/images/plotly.png)](https://nygeog.github.io/basinpredictions.github.io/)
